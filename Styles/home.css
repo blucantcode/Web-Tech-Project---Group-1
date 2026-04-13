@@ -1,105 +1,148 @@
-*{
+/*NOTE: The only use of AI in this stylesheet was for the purpose of organzing z-indexes */
 
-margin:0;
+
+* {
+
+  margin: 0;
 
 }
 
 
 
-.navbg
-{
-  position: absolute;
+.navbg {
+  position: fixed;
   padding: 10px;
-  top: 15px;     
-  right: 18px;    
+  top: 30px;
+  right: 18px;
   width: 650px;
   height: 60px;
   background-color: #73835B;
   border-radius: 50px;
-  z-index: -1;
+  z-index: 10;
 }
 
 
-.rectangle
-{
+.rectangle {
   position: absolute;
-  top: 100px;
-  left: 60px;
-  width: 200px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.89);
+  top: 200px;
+  right: 400px;
+  width: 700px;
+  height: 600px;
+  background-color: #73835B;
   border-radius: 15px;
+  z-index: 5;
 }
 
 
+
+.searchbox form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 125px;
+  right: 28px;
+  padding: 10px;
+  border-radius: 50px;
+  font-family: 'Lora';
+  background-color: #e8e9ce;
+  width: max-content;
+  z-index: 110;
+  pointer-events: auto; 
+}
+
+.searchbox input[type="search"] {
+  font-family: 'raleway';
+  border: none;
+  outline:none;
+  width: 200px;
+  background: none;
+  cursor: text;
+
+}
+
+.searchbox input::placeholder, .searchbox-icon
+{
+  color: rgba(0, 0, 0, 0.466);
+}
+
+
+button {
+  
+  border: none;
+  background: none;
+
+}
 
 .menu {
   display: inline-block;
   text-align: right;
-  margin-right: 50px; /* Adds space between the links */
+  margin-right: 50px;
   font-family: 'Lora';
-  z-index: 2;
+  position: relative;
+  z-index: 999;
 }
-
-
-.searchbox
-{
-  display: flex;
-  justify-content: flex-end;
-  padding: 40px;
-  font-family: 'Lora';
-}
-
 
 .menu a {
-  color: #f2f2f2;
+  color: #E2E3BF;
   padding: 20px 16px;
   text-decoration: none;
   font-size: 30px;
-  z-index: 2;
+  position: relative;
+  z-index: 150;
 }
 
-.banner-text
-{
+
+.banner-text {
   display: flex;
   justify-content: flex-end;
-  align-items:flex-end;
-  padding-top: 35px;
+  align-items: flex-end;
+  padding-top: 50px;
   color: white;
   text-align: center;
-  z-index: 2;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 
-.banner-desc /* welcome bit */
-{
-  display: inline;
-  color: white;
+.banner-desc
+
+/* welcome bit */
+  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly, flex-end;
+  align-items: flex-end;
+  position:absolute;
+  text-align: left;
+  top: 250px;
+  right: 450px;
+  color: #E2E3BF;
   text-align: center;
   font-size: xx-large;
+  z-index: 2;
 }
 
 .banner {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/banner.png"); /* Overlay for text readability */
-  z-index: -2;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("../images/banner.png");
+  z-index: 1;
   background-size: cover;
   background-position: center;
-  height: 500px; /* Adjust height as needed */
+  height: 900px;
   width: 100%;
-  color: white;
+  color: #51623D;
   text-align: center;
+  z-index: 1;
 }
 
 
 
-footer p
-{
+footer p {
   display: inline-block;
 }
 
-footer a
-{
+footer a {
   color: #f2f2f2;
   padding: 14px 16px;
   text-decoration: none;
