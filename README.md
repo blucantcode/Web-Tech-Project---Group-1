@@ -17,4 +17,47 @@ Please add this to your head tag:  <link rel="stylesheet" href="Styles/maintheme
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
 
 
-I (lotus) will add the navbar to everyones page, just lmk on discord when you're ready to have it added!!!
+To add the navigation bar to your page, you can insert this:
+
+<body>
+
+  <div class="banner">
+
+    <nav>
+      <div class="navbg"></div>
+      <div class="navbar-text">
+        <p class="menu"><a href="Home.html">Home</a></p>
+        <p class="menu"><a href="About.html">About</a> </p>
+        <p class="menu"><a href="jobspage.html">Jobs</a></p>
+        <p class="menu"><a href="Apply.html">Apply</a></p>
+      </div>
+
+      <div class="rectangle"></div>
+
+      <div class="searchbox">
+        <form action="/search" method="get">
+          <input type="search" name="q" placeholder="Search..." aria-label="Search through site content">
+          <button type="submit"><span class="searchbox-icon material-symbols-outlined">
+              search
+            </span></button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <div class="banner-desc">
+    <p>
+    <h1>HOLLISTIC <BR> HARMONY</h1>
+    </p>
+    <p>
+    <h2><em>idk what to put here lol</em></h2>
+    </p>
+    <br>
+    <br>
+    <br>
+    <p>Discover a technology that bridges <br> the gap between your practice and </p>
+  </div>
+  </div>
+
+  Feel free to change the little box thing with the description to something about your page instead :D
+
