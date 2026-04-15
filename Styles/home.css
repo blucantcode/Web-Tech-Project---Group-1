@@ -1,0 +1,173 @@
+/* NOTE: The only use of AI in this stylesheet was for the purpose of organzing z-indexes */
+
+
+* {
+
+  margin: 0;
+
+}
+
+
+
+.navbg {
+  position: fixed;
+  padding: 10px;
+  top: 30px;
+  right: 18px;
+  width: 650px;
+  height: 60px;
+  background-color: #73835B;
+  border-radius: 50px;
+  z-index: 10;
+}
+
+
+.rectangle {
+  position: absolute;
+  top: 200px;
+  right: 400px;
+  width: 700px;
+  height: 600px;
+  background-color: #73835B;
+  border-radius: 15px;
+  z-index: 5;
+}
+
+
+
+.searchbox form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 125px;
+  right: 28px;
+  padding: 10px;
+  border-radius: 50px;
+  font-family: 'Lora';
+  background-color: #e8e9ce;
+  width: max-content;
+  z-index: 110;
+  pointer-events: auto; 
+}
+
+.searchbox input[type="search"] {
+  font-family: 'raleway';
+  border: none;
+  outline:none;
+  width: 200px;
+  background: none;
+  cursor: text;
+
+}
+
+.searchbox input::placeholder, .searchbox-icon
+{
+  color: rgba(0, 0, 0, 0.466);
+}
+
+
+button {
+  
+  border: none;
+  background: none;
+
+}
+
+.menu {
+  display: inline-block;
+  position: fixed;
+  text-align: right;
+  margin-right: 50px;
+  font-family: 'Lora';
+  position: relative;
+  z-index: 999;
+}
+
+.menu a {
+  color: #E2E3BF;
+  position: fixed;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  position: relative;
+  z-index: 150;
+}
+
+
+.navbar-text {
+  position:fixed;
+  top: 0px;
+  right: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-top: 50px;
+  color: white;
+  text-align: center;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.navbar-text a:hover
+{
+  background-color: #51623D;
+  border-radius: 50px;
+  border-width: auto; 
+  
+  
+}
+
+
+
+
+.banner-desc
+
+/* welcome bit */
+  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly, flex-end;
+  align-items: flex-end;
+  position:absolute;
+  text-align: left;
+  top: 250px;
+  right: 450px;
+  color: #E2E3BF;
+  text-align: center;
+  font-size: xx-large;
+  z-index: 2;
+}
+
+.banner {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("../images/banner.png");
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  height: 900px;
+  width: 100%;
+  color: #51623D;
+  text-align: center;
+  z-index: 1;
+}
+
+
+
+footer p {
+  display: inline-block;
+}
+
+footer a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* responsive design wooho */
+
+@media (max-width: 600px) 
+{
+
+}
