@@ -216,6 +216,8 @@ footer a {
 }
 
 /* Grid layout for job cards */
+
+
 .jobs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -258,6 +260,27 @@ footer a {
   counter-increment: section;
   content: counter(section) ". ";
   font-weight: bold;
+}
+
+@media (max-width: 600px) 
+{
+  .jobs {
+    grid-template-columns: 1fr;
+  }
+
+  .apply aside {
+    float: none;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .navbar-text {
+    flex-direction: column;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
 }
 
 .apply aside {
