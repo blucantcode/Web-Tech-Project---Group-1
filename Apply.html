@@ -16,12 +16,27 @@
 <body>
 
 
-<nav class="simple-nav">
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="jobspage.html">Jobs</a>
-    <a href="apply.html">Apply</a>
-</nav>
+<div class="banner">
+
+    <nav>
+      <div class="navbg"></div>
+      <div class="navbar-text">
+        <p class="menu"><a href="Home.html">Home</a></p>
+        <p class="menu"><a href="About.html">About</a> </p>
+        <p class="menu"><a href="jobspage.html">Jobs</a></p>
+        <p class="menu"><a href="Apply.html">Apply</a></p>
+      </div>
+
+      <div class="searchbox">
+        <form action="/search" method="get">
+          <input type="search" name="q" placeholder="Search..." aria-label="Search through site content">
+          <button type="submit"><span class="searchbox-icon material-symbols-outlined">
+              search
+            </span></button>
+        </form>
+      </div>
+    </nav>
+  </div>
 
 <div class="page-title">
     <h1>Job Application Form</h1>
