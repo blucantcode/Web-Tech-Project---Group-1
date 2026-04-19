@@ -1,4 +1,5 @@
 /* NOTE: The only use of AI in this stylesheet was for the purpose of organzing z-indexes/debugging */
+/* Author: Lotus A */
 
 
 .rectangle {
@@ -16,14 +17,14 @@
 }
 
 
-.searchbox input::placeholder, .searchbox-icon
-{
+.searchbox input::placeholder,
+.searchbox-icon {
   color: rgba(0, 0, 0, 0.466);
 }
 
 
 button {
-  
+
   border: none;
   background: none;
 
@@ -31,12 +32,11 @@ button {
 
 
 
-.banner-desc
-  {
+.banner-desc {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  position:absolute;
+  position: absolute;
   text-align: left;
   top: 300px;
   right: 450px;
@@ -59,27 +59,24 @@ button {
   z-index: 0;
 }
 
-.body-desc
-{
+.body-desc {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 10px; 
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   font-size: 2rem;
   text-align: left;
   padding: 10rem;
   opacity: 0;
   animation: fadeinNup 1s 0.5s ease-in-out forwards;
- 
+
 }
 
-.body-head
-{
+.body-head {
   font-size: 3rem;
 }
 
 
-.clinicimage
-{
+.clinicimage {
   background-image: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("../images/clinic.png");
   position: relative;
   background-attachment: fixed;
@@ -89,51 +86,63 @@ button {
   width: 100%;
   color: #51623D;
   text-align: center;
-  z-index: 1;
+  z-index: 0;
 }
 
-.body-v-head
+.bgv
 {
+  background-image: url("../images/bggrapic.png");
+  background-position: 35%;
+  background-size: auto;
+}
+
+.body-v-head {
   font-size: 3rem;
   display: flex;
   justify-content: center;
   padding-top: 50px;
-  animation: fadeinNup 1s ease-in-out forwards;
+  opacity: 0;
+  animation: fadeinNup 2s 3s ease-in-out forwards;
 }
 
-.body-vacancies
-{
+.body-vacancies {
+  background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 50px;
-  animation: fadeinNup 1s ease-in-out forwards;
+  opacity: 0;
+  animation: fadeinNup 2s 3s ease-in-out forwards;
 }
 
-th
-{
+th {
   text-align: center;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
 }
 
-td:hover {background-color: #73835B;}
+td:hover {
+  background-color: #73835B;
+}
 
-td a{
+td a {
   color: #E2E3BF;
   text-decoration: none;
   font-size: 2rem;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #73835B;
-  
+
   border-radius: 10px;
-} 
-.body-table
-{
+}
+
+.body-table {
   font-size: 2rem;
   text-align: left;
   padding: 3rem;
@@ -141,23 +150,21 @@ table, th, td {
   border-radius: 30px;
   box-shadow: 0 0 10px 5px #51623d2e;
   opacity: 0;
-  animation: fadeinNup 1s 0.5s ease-in-out forwards;
+  animation: fadeinNup 2s 3.5s ease-in-out forwards;
 }
 
 
-.body-alljobs
-{
+.body-alljobs {
   color: #E2E3BF;
   padding-bottom: 2rem;
   font-size: 3rem;
 }
 
-.body-alljobs a
-{
+.body-alljobs a {
   color: #E2E3BF;
   display: inline-block;
-  margin-right: 1.5rem;   
-  margin-bottom: 1rem;  
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
   padding: 2rem;
   border-radius: 80px;
   text-decoration: none;
@@ -166,8 +173,7 @@ table, th, td {
   box-shadow: 0 0 15px 5px #51623d2e;
 }
 
-.body-alljobs a:hover
-{
+.body-alljobs a:hover {
   background-color: #6b7a55;
 }
 
@@ -185,14 +191,64 @@ footer a {
 
 /* responsive design wooho */
 
-@media (max-width: 600px) 
-{
+@media (max-width: 1440px) {
+  .rectangle {
+    right: 10%;
+    width: 550px;
+    height: 450px
+  }
+
+  .banner-desc {
+    top: 37%;
+    right: 12%;
+    font-size: 1.6rem;
+  }
+
+  .body-desc {
+    gap: 10px;
+    font-size: 1.5rem;
+    padding: 5rem;
+  }
+
+  .clinicimage {
+    height: 400px;
+  }
+
+  .body-v-head {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+
+  }
+
+  .body-alljobs {
+    padding: 6rem;
+    font-size: 3rem;
+    white-space: nowrap;
+  }
+
+  .body-alljobs a {
+    padding-top: 5rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 80px;
+    font-size: 2rem;
+    white-space: nowrap;
+    
+  }
 
 }
 
-@keyframes fadeinNup 
-{
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0px)}
-}
+@keyframes fadeinNup {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
+  to {
+    opacity: 1;
+    transform: translateY(0px)
+  }
+}
