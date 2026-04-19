@@ -7,7 +7,6 @@ description: [Web Tech - assignment]
 
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
   background-color: #7c8763;
   color: #f0f1d5;
 }
@@ -109,4 +108,18 @@ th {
 
 td:hover {
   background-color: #5c7445;
+}
+
+footer {
+  border-top: 1px solid #999;   
+  margin-top: 40px;             
+  padding: 15px 0;        
+  text-align: center;           
+}
+
+footer p {
+  max-width: 700px;            
+  margin: 0 auto;              
+  font-size: 0.9em;
+  line-height: 1.4;
 }
