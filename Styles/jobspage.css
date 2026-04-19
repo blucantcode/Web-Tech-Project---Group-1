@@ -1,0 +1,126 @@
+a
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+}
+
+
+
+body
+{
+    font-family: 'Raleway';
+    background-color: #73835b;
+    color: #E2E3BF;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-family: 'Lora';
+}
+
+
+ 
+
+    h1 {
+        color: #E2E3BF;
+        text-align: center;
+    }
+
+    h2 {
+        color: #E2E3BF;
+        text-align: center;
+    }
+
+
+.description {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px; background-color: #51623d; 
+    border-radius: 15px; width : 50%; margin: 0 auto;
+}
+
+/* Grid layout for job cards */
+
+
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  list-style: none;
+  padding: 20px;
+}
+
+.job-card {
+  background-color: #6b7a52;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #51623d;
+  background-color: #6b7a52;
+  border-radius: 10px;
+}
+
+
+.job-card h3 {
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  margin-bottom: 10px;
+}
+
+/* Numbers for the headings */
+
+.job-details {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: section;
+}
+
+.job-details li {
+  margin-bottom: 10px;
+}
+
+.job-details h4::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+  font-weight: bold;
+}
+
+@media (max-width: 600px) 
+{
+  .jobs {
+    grid-template-columns: 1fr;
+  }
+
+  .apply aside {
+    float: none;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .navbar-text {
+    flex-direction: column;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+}
+
+.apply aside {
+  float: right;
+  width: 25%;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #51623d;
+  background-color: #6b7a52;
+  border-radius: 10px;
+}
+
+.apply::after {
+  content: "";
+  display: block;
+  clear: both;
+}
