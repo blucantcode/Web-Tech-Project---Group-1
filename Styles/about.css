@@ -1,0 +1,112 @@
+/*
+filename: [assignment-1_about]
+author: [Emily Armstrong]
+created: [1/04/25]
+description: [Web Tech - assignment]
+*/
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background-color: #7c8763;
+  color: #f0f1d5;
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  color: #eaeed3;
+}
+
+figcaption {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+.team {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #3f522d;
+  border-radius: 20px;
+}
+
+
+.memberCard {
+  background-color: #4a6036;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+.memberCard dt {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+.studId {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+
+.quote {
+  font-style: italic;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+
+img {
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+  border-radius: 15px;
+}
+
+img {
+  width: 600px;
+  height: auto; 
+}
+
+
+table {
+  width: 80%;
+  margin: 40px auto;
+  border-collapse: collapse;
+  background-color: #4a6036;
+}
+
+
+caption {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+
+th, td {
+  background-color: #4a6036;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+
+th {
+  font-weight: bold;
+}
+
+
+td:hover {
+  background-color: #5c7445;
+}
