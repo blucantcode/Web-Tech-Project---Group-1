@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" >
-  <meta name="description" content="Homepage for KELP" >
-  <meta name="keywords" content="HTML5, Homepage, Navigation, Footer, Search Box" >
+  <meta charset="utf-8">
+  <meta name="description" content="Homepage for KELP">
+  <meta name="keywords" content="HTML5, Homepage, Navigation, Footer, Search Box">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Lotus A" >
+  <meta name="author" content="Lotus A">
   <title>KELP Homepage</title>
   <link rel="stylesheet" href="Styles/home.css">
   <link rel="stylesheet" href="Styles/maintheme.css">
@@ -20,52 +20,28 @@
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" >
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search">
 
 </head>
 
+<!-- bello -->
+
 <body>
 
-  <div class="banner">
-    <nav>
-      <div class="navbg">
-        <div class="navbar-text">
-          <p class="menu"><a href="index.html">Home</a></p>
-          <p class="menu"><a href="About.html">About</a></p>
-          <p class="menu"><a href="jobspage.html">Jobs</a></p>
-          <p class="menu"><a href="Apply.html">Apply</a></p>
-        </div>
-      </div>
+  <?php include('header.inc'); ?>
 
-      <div class="rectangle"></div>
-
-      <div class="searchbox">
-        <form action="/search" method="get">
-          <input type="search" name="q" placeholder="Search..." aria-label="Search through site content">
-          <button type="submit"><span class="searchbox-icon material-symbols-outlined"> search </span></button>
-        </form>
-      </div>
-    </nav>
-
-    <div class="banner-desc">
-      <h1>HOLISTIC <br> HARMONY</h1>
-      <h2>A New Way To <em>Thrive</em></h2>
-      <br>
-      <p>
-        Discover a technology that bridges <br>
-        the gap between your practice and <br>
-        your patients. Its as simple as <br>
-        hitting apply.
-      </p>
-    </div>
+  <div class="banner-desc">
+    <h1>HOLISTIC <br> HARMONY</h1>
+    <h2>A New Way To <em>Thrive</em></h2>
+    <br>
+    <p>
+      Discover a technology that bridges <br>
+      the gap between your practice and <br>
+      your patients. Its as simple as <br>
+      hitting apply.
+    </p>
   </div>
-
-
-
-
-  <!--<img src="images/3.png" alt="KELP Logo, large text with kelp image in background" title="Logo"> -->
-
-
+  </div>
 
 
   <br>
@@ -78,7 +54,8 @@
         <h2>What We Do</h2>
       </div>
       <p> Our technology is a new way for you to experience practice to patient connection. Our goal is to enable
-        practices a simple and easy way to interact with patients and run their clinics. We offer a range of services and
+        practices a simple and easy way to interact with patients and run their clinics. We offer a range of services
+        and
         specialise in providing your clinic with trained and experienced medical and wellness professionals, backed by
         our
         100% Satisfaction Guarantee. </p>
@@ -126,13 +103,9 @@
   <br>
   <br>
   <br>
-  <footer>
-    <p> <a
-        href="https://blucantccode.atlassian.net/?continue=https%3A%2F%2Fblucantccode.atlassian.net%2Fwelcome%2Fsoftware%3FprojectId%3D10033&atlOrigin=eyJpIjoiYTQ3Zjk1MDA3NWE2NDIzZjkxMjU4MjNhMmQxOWZhMTAiLCJwIjoiamlyYS1zb2Z0d2FyZSJ9">Jira</a>
-    </p>
-    <p> <a href="https://github.com/blucantcode/Web-Tech-Project---Group-1">Github</a></p>
-    <p> <a href="mailto:hello@kelp.com">Contact Us</a></p>
-  </footer>
+
+  <?php include('footer.inc'); ?>
+  
 </body>
 
 </html>
