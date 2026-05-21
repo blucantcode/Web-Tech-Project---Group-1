@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Homepage for KELP">
-  <meta name="keywords" content="HTML5, Homepage, Navigation, Footer, Search Box">
+  <meta name="keywords" content="KELP, Web Technology Assignment, Group Assignment">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Lotus A">
   <title>KELP Homepage</title>
-  <link rel="stylesheet" href="Styles/home.css">
+  <link rel="stylesheet" href="Styles/index.css">
   <link rel="stylesheet" href="Styles/maintheme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +24,9 @@
 
 </head>
 
-<!-- bello -->
+<!-- BANNER -->
 
-<body>
+<body class="index">
 
   <?php include('header.inc'); ?>
 
@@ -44,10 +44,10 @@
   </div>
 
 
-  <br>
-  <br>
-  <br>
+<main>
 
+
+  <!-- MAIN CONTENT INTRO -->
   <div class="body">
     <div class="body-desc">
       <div class="body-head">
@@ -62,9 +62,13 @@
     </div>
   </div>
 
+
+<!-- SPACER BG -->
   <div class="clinicimage"></div>
   <div class="bgv">
     <div class="body-v-head">
+
+    <!-- VACANCIES TABLE/SEE MORE -->
       <h2>Current Vacancies</h2>
     </div>
     <div class="body-vacancies">
@@ -94,16 +98,9 @@
         <a href="jobspage.html">All Jobs</a>
       </div>
     </div>
-
-    <br>
-    <br>
-    <br>
-  </div>
-  <hr>
-  <br>
-  <br>
-  <br>
-
+</div>
+   
+</main>
   <?php include('footer.inc'); ?>
   
 </body>

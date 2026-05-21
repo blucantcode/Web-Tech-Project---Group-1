@@ -29,27 +29,10 @@
 <body>
 
 <!-- /* NavBar */ -->
- <div class="banner">
+<?php include('header.inc'); ?>
+<div class="banner"></div>
 
-    <nav>
-      <div class="navbg"></div>
-      <div class="navbar-text">
-        <p class="menu"><a href="index.html">Home</a></p>
-        <p class="menu"><a href="About.html">About</a> </p>
-        <p class="menu"><a href="jobspage.html">Jobs</a></p>
-        <p class="menu"><a href="Apply.html">Apply</a></p>
-      </div>
-
-      <div class="searchbox">
-        <form action="/search" method="get">
-          <input type="search" name="q" placeholder="Search..." aria-label="Search through site content">
-          <button type="submit"><span class="searchbox-icon material-symbols-outlined">
-              search
-            </span></button>
-        </form>
-      </div>
-    </nav>
-  </div>
+<main>
 
 <!-- /* Inline CSS for the job cards */ -->
 <h1 style="color: #E2E3BF;">Welcome to our careers page</h1>
@@ -210,7 +193,7 @@
         <p>To apply for any of the above positions, please send your resume and cover letter to <a href="mailto:careers@kelp.com">careers@kelp.com</a></p>
     </aside>
 </div>
-
+</main>
 </body>
 
 </html>

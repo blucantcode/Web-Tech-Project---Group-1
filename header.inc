@@ -2,10 +2,10 @@
     <nav>
       <div class="navbg">
         <div class="navbar-text">
-          <p class="menu"><a href="index.html">Home</a></p>
-          <p class="menu"><a href="About.html">About</a></p>
-          <p class="menu"><a href="jobspage.html">Jobs</a></p>
-          <p class="menu"><a href="Apply.html">Apply</a></p>
+          <p class="menu"><a href="/Web-Tech-Project---Group-1/index.php">Home</a></p>
+          <p class="menu"><a href="/Web-Tech-Project---Group-1/About.php">About</a></p>
+          <p class="menu"><a href="/Web-Tech-Project---Group-1/jobspage.php">Jobs</a></p>
+          <p class="menu"><a href="/Web-Tech-Project---Group-1/Apply.php">Apply</a></p>
         </div>
       </div>
 
