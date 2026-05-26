@@ -1,3 +1,11 @@
+<?php
+include("settings.php");
+
+$sql = "SELECT * FROM about";
+$result = mysqli_query($conn, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,51 +60,30 @@
 
     <section class="team">
       <h2>Who we are</h2>
-      <div class="memberCard">
-        <dl>
-          <dt><strong>Lotus Allan</strong></dt>
-          <dd class="studId">Student ID: 105138731</dd>
-          <dd>Developed the index page and collaborated on CSS styling</dd>
-          <dd class="quote">
-            Quote (Latin): "Vita revera est valde simplex, non necesse est eam tam complicatam facere."
-            (Life is really very simple, there's no need to make it so complicated.)
-          </dd>
-        </dl>
-      </div>
+           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
 
-      <div class="memberCard">
-        <dl>
-          <dt><strong>Phoebe Anastasiou</strong></dt>
-          <dd class="studId">Student ID: 106509600</dd>
-          <dd>Created the Jobs page and collaborated on CSS styling</dd>
-          <dd class="quote">
-            Quote (Latin): "Carpe diem" (Seize the day)
-          </dd>
-        </dl>
-      </div>
+        <div class="memberCard">
+          <dl>
 
-      <div class="memberCard">
-        <dl>
-          <dt><strong>Krisha Upadhyay</strong></dt>
-          <dd class="studId">Student ID: 106513368</dd>
-          <dd>Built the Apply page and collaborated on CSS styling</dd>
-          <dd class="quote">
-            Quote (Latin): "sicut ad eam" (Just do it)
-          </dd>
-        </dl>
-      </div>
+            <dt><strong><?php echo $row['name']; ?></strong></dt>
 
-      <div class="memberCard">
-        <dl>
-          <dt><strong>Emily Armstrong</strong></dt>
-          <dd class="studId">Student ID: 106505064</dd>
-          <dd>Worked on the About page and collaborated on CSS styling</dd>
-          <dd class="quote">
-            Quote (Latin): "Noli solliciti esse, omnia tandem bene eveniunt."
-            (Don't worry, it all works out in the end)
-          </dd>
-        </dl>
-      </div>
+            <dd class="studId">
+              Student ID: <?php echo $row['student_id']; ?>
+            </dd>
+
+            <dd>
+              <?php echo $row['contribution']; ?>
+            </dd>
+
+
+            <dd class="quote">
+              <?php echo $row['quote']; ?>
+            </dd>
+
+          </dl>
+        </div>
+
+      <?php } ?>
 
     </section>
 
