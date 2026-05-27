@@ -11,4 +11,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+//Manage.php
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "manage";
+
 ?>
