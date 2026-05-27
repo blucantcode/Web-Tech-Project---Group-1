@@ -186,8 +186,6 @@
 
 
 
-<!-- /* Apply Box*/ -->
-<div class = "apply">
     <aside>
         <h2>How to Apply</h2>
         <p>To apply for any of the above positions, please send your resume and cover letter to <a href="mailto:careers@kelp.com">careers@kelp.com</a></p>
