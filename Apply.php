@@ -29,7 +29,7 @@
 
         <div class="container">
 
-            <form action="submit.php" method="post">
+            <form action="process_eoi.php" method="post" novalidate>
 
                 <fieldset>
                     <legend>Applicant Details</legend>
