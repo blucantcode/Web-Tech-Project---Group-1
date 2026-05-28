@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "project2";
+$database = "jobstable_db";
 
 $conn = mysqli_connect($host, $user, $password, $database);
 

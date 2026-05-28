@@ -1,3 +1,51 @@
+
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+include 'settings.php';
+
+$conn = mysqli_connect($host, $user, $password, $database); 
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// For search bar
+
+if (isset($_GET['search'])) {
+
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+
+    $sql = "SELECT Jobs.*, Jobs_requirements.*
+            FROM Jobs
+            LEFT JOIN Jobs_requirements
+            ON Jobs.Job_ID = Jobs_requirements.Job_ID
+            WHERE Title LIKE '%$search%'";
+
+} else {
+
+    $sql = "SELECT Jobs.*, Jobs_requirements.*
+            FROM Jobs
+            LEFT JOIN Jobs_requirements
+            ON Jobs.Job_ID = Jobs_requirements.Job_ID";
+}
+
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));}
+
+
+$row1 = mysqli_fetch_assoc($result);
+$row2 = mysqli_fetch_assoc($result);
+$row3 = mysqli_fetch_assoc($result);
+$row4 = mysqli_fetch_assoc($result);
+
+mysqli_close($conn);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +78,9 @@
 
 <!-- /* NavBar */ -->
 <?php include('header.inc'); ?>
-<div class="banner"></div>
+<div class="jobs-banner"></div>
+
+
 
 <main>
 
@@ -41,157 +91,267 @@
 </div>
 
 
+
+
 <h2>Current Job Openings</h2>
 
 <!-- /* Job grid */ -->
-<ol class="jobs">
+<ul class="jobs">
 
-    
-<!-- /* Job card 1 */ -->
-        <li class="job-card">
-            <section>
-            <h3>Telehealth Consultant</h3> 
-            <p>Provide remote healthcare consultations and support to patients</p>
+<!-- Job card 1  -->
+ <?php if ($row1) { ?>
+<li class="job-card">
+    <section>
+        <h3><?php echo $row1['Title']; ?></h3>
+
+        <p><?php echo $row1['Description']; ?></p>
 
         <ul class="job-details">
-            <li><h4>Reference Number:</h4>J0013</li>
-            <li><h4>Salary:</h4>$70,000 - $85,000</li>
-            <li><h4>Reporting To:</h4>Director of Telehealth</li>
-            <li><h4>Responsibilities:</h4>
+
+            <li>
+                <h4>Reference Number:</h4>
+                <?php echo $row1['Reference_Number']; ?>
+            </li>
+
+            <li>
+                <h4>Salary:</h4>
+                <?php echo $row1['Salary']; ?>
+            </li>
+
+            <li>
+                <h4>Reporting To:</h4>
+                <?php echo $row1['Reporting_To']; ?>
+            </li>
+
+            <li>
+                <h4>Responsibilities:</h4>
+
                 <ul>
-                    <li>Conduct virtual consultations</li>
-                    <li>Maintain patient records</li>
-                    <li>Collaborate with healthcare providers</li>
+                    <li><?php echo $row1['Responsibility_one']; ?></li>
+                    <li><?php echo $row1['Responsibility_two']; ?></li>
+                    <li><?php echo $row1['Responsibility_three']; ?></li>
                 </ul>
             </li>
-            <li><h4>Essential Requirements:</h4>
+
+            <li>
+                <h4>Essential Requirements:</h4>
+
                 <ul>
-                    <li>Bachelor's degree in Healthcare or related field</li>
-                    <li>Relevant experience in working with patients</li>
+                    <li><?php echo $row1['Essential_Requirement_one']; ?></li>
+                    <li><?php echo $row1['Essential_Requirement_two']; ?></li>
                 </ul>
             </li>
-            <li><h4>Preferred Requirements:</h4>
-                <ul> 
-                    <li>Experience with telehealth platforms</li>
-                    <li>Strong communication skills</li>
+
+            <li>
+                <h4>Preferred Requirements:</h4>
+
+                <ul>
+                    <li><?php echo $row1['Preferred_Requirements_one']; ?></li>
+                    <li><?php echo $row1['Preferred_Requirements_two']; ?></li>
                 </ul>
             </li>
         </ul>
-            </section>
-        </li>
-     
-<!-- /* Job card 2 */ -->
-        <li class="job-card">
-            <section>
-            <h3>Mental Health Counselor</h3>
-            <p>Provide counseling and support to patients with mental health conditions.</p>
+    </section>
+</li>
+<?php } ?>
+    
+<!-- Job card 2 -->
+<?php if ($row2) { ?>
+<li class="job-card">
+    <section>
+
+        <h3><?php echo $row2['Title']; ?></h3>
+
+        <p><?php echo $row2['Description']; ?></p>
 
         <ul class="job-details">
-            <li><h4>Reference Number:</h4>J0014</li>
-            <li><h4>Salary:</h4>$80,000 - $95,000</li>
-            <li><h4>Reporting To:</h4>Director of Mental Health</li>
-            <li><h4>Responsibilities:</h4>
+
+            <li>
+                <h4>Reference Number:</h4>
+                <?php echo $row2['Reference_Number']; ?>
+            </li>
+
+            <li>
+                <h4>Salary:</h4>
+                <?php echo $row2['Salary']; ?>
+            </li>
+
+            <li>
+                <h4>Reporting To:</h4>
+                <?php echo $row2['Reporting_To']; ?>
+            </li>
+
+        
+
+            <li>
+                <h4>Responsibilities:</h4>
+
                 <ul>
-                    <li>Conduct individual and group therapy sessions</li>
-                    <li>Maintain client records</li>
-                    <li>Collaborate with other healthcare professionals</li>
+                    <li><?php echo $row2['Responsibility_one']; ?></li>
+                    <li><?php echo $row2['Responsibility_two']; ?></li>
+                    <li><?php echo $row2['Responsibility_three']; ?></li>
                 </ul>
             </li>
-            <li><h4>Essential Requirements:</h4>
+
+            <li>
+                <h4>Essential Requirements:</h4>
+
                 <ul>
-                    <li>Master's degree in Counseling or related field</li>
-                    <li>Licensed to practice</li>
+                    <li><?php echo $row2['Essential_Requirement_one']; ?></li>
+                    <li><?php echo $row2['Essential_Requirement_two']; ?></li>
                 </ul>
             </li>
-            <li><h4>Preferred Requirements:</h4>
+
+            <li>
+                <h4>Preferred Requirements:</h4>
+
                 <ul>
-                    <li>Experience with treating mental health disorders</li>
-                    <li>Strong communication skills</li>
+                    <li><?php echo $row2['Preferred_Requirements_one']; ?></li>
+                    <li><?php echo $row2['Preferred_Requirements_two']; ?></li>
                 </ul>
             </li>
         </ul>
-        </section>
-        </li>
-    
-    
-    
+    </section>
+    </li>
+<?php } ?>
 
 
-    <!-- /* Job card 3 */ -->
-        <li class="job-card">
-        <section>
-            <h3>Digital Health Product Manager</h3> 
-            <p>Coordinates between clinicians and IT teams to launch new digital tools or features</p>
+<!-- Job card 3 -->
+<?php if ($row3) { ?>
+<li class="job-card">
+    <section>
 
-        <ul class="job-details">
-            <li><h4>Reference Number:</h4>J0015</li>
-            <li><h4>Salary:</h4>$90,000 - $110,000</li>
-            <li><h4>Reporting To:</h4>Director of Digital Health</li>
-            <li><h4>Responsibilities:</h4>
-                <ul>
-                    <li>Lead product development with stakeholders </li>
-                    <li>Ensure timely delivery of digital health solutions</li>
-                </ul>
-            </li>
-            <li><h4>Essential Requirements:</h4> 
-                <ul>
-                    <li>Bachelor's degree in Computer Science or related field</li>
-                    <li>Experience in healthcare technology</li>
-                </ul>
-            </li>
-                <li><h4>Preferred Requirements:</h4>
-                    <ul>
-                        <li>Experience with digital health platforms</li>
-                        <li>Strong project management skills</li>
-                    </ul>
-                </li>
-            </ul>
-            </section>
-        </li>
-    
+        <h3><?php echo $row3['Title']; ?></h3>
 
-<!-- /* Job card 4 */ -->
-        <li class="job-card">
-        <section>
-            <h3>Registered Nurse</h3> 
-            <p>Provide direct patient care and support in a healthcare setting</p>
+        <p><?php echo $row3['Description']; ?></p>
 
         <ul class="job-details">
-            <li><h4>Reference Number:</h4>J0017</li>
-            <li><h4>Salary:</h4>$80,000 - $100,000</li>
-            <li><h4>Reporting To:</h4>Nurse Manager</li>
-            <li><h4>Responsibilities:</h4>
+
+            <li>
+                <h4>Reference Number:</h4>
+                <?php echo $row3['Reference_Number']; ?>
+            </li>
+
+            <li>
+                <h4>Salary:</h4>
+                <?php echo $row3['Salary']; ?>
+            </li>
+
+            <li>
+                <h4>Reporting To:</h4>
+                <?php echo $row3['Reporting_To']; ?>
+            </li>
+
+        
+
+            <li>
+                <h4>Responsibilities:</h4>
+
                 <ul>
-                    <li>Provide direct patient care</li>
-                    <li>Monitor patient conditions</li>
-                    <li>Collaborate with healthcare team</li>
+                    <li><?php echo $row3['Responsibility_one']; ?></li>
+                    <li><?php echo $row3['Responsibility_two']; ?></li>
+                    <li><?php echo $row3['Responsibility_three']; ?></li>
                 </ul>
             </li>
-            <li><h4>Essential Requirements:</h4>
+
+            <li>
+                <h4>Essential Requirements:</h4>
+
                 <ul>
-                    <li>Bachelor's degree in Nursing or related field</li>
-                    <li>Current RN license</li>
+                    <li><?php echo $row3['Essential_Requirement_one']; ?></li>
+                    <li><?php echo $row3['Essential_Requirement_two']; ?></li>
                 </ul>
             </li>
-                <li><h4>Preferred Requirements:</h4> 
-                    <ul>
-                        <li>Experience with patient care</li>
-                        <li>Proactive approach to patient care</li>
-                    </ul>
-                </li>
+
+            <li>
+                <h4>Preferred Requirements:</h4>
+
+                <ul>
+                    <li><?php echo $row3['Preferred_Requirements_one']; ?></li>
+                    <li><?php echo $row3['Preferred_Requirements_two']; ?></li>
+                </ul>
+            </li>
         </ul>
-        </section>
-        </li>
-    </ol> 
+    </section>
+    </li>
+<?php } ?>
 
 
+<!-- Job card 4 -->
+ <?php if ($row4) { ?>
+<li class="job-card">
+    <section>
 
+        <h3><?php echo $row4['Title']; ?></h3>
+
+        <p><?php echo $row4['Description']; ?></p>
+
+        <ul class="job-details">
+
+            <li>
+                <h4>Reference Number:</h4>
+                <?php echo $row4['Reference_Number']; ?>
+            </li>
+
+            <li>
+                <h4>Salary:</h4>
+                <?php echo $row4['Salary']; ?>
+            </li>
+
+            <li>
+                <h4>Reporting To:</h4>
+                <?php echo $row4['Reporting_To']; ?>
+            </li>
+
+        
+
+            <li>
+                <h4>Responsibilities:</h4>
+
+                <ul>
+                    <li><?php echo $row4['Responsibility_one']; ?></li>
+                    <li><?php echo $row4['Responsibility_two']; ?></li>
+                    <li><?php echo $row4['Responsibility_three']; ?></li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Essential Requirements:</h4>
+
+                <ul>
+                    <li><?php echo $row4['Essential_Requirement_one']; ?></li>
+                    <li><?php echo $row4['Essential_Requirement_two']; ?></li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Preferred Requirements:</h4>
+
+                <ul>
+                    <li><?php echo $row4['Preferred_Requirements_one']; ?></li>
+                    <li><?php echo $row4['Preferred_Requirements_two']; ?></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    </li>
+<?php } ?>
+    
+</ul>
+
+<?php if (!$row1 && !$row2 && !$row3 && !$row4) { ?>
+    <p>No jobs found matching your search.</p>
+<?php } ?>
+
+<!-- /* Apply Box*/ -->
+<div class = "apply">
     <aside>
         <h2>How to Apply</h2>
         <p>To apply for any of the above positions, please send your resume and cover letter to <a href="mailto:careers@kelp.com">careers@kelp.com</a></p>
     </aside>
 </div>
 </main>
+
 </body>
 
 </html>
