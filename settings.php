@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "jobstable_db";
+
 
 //Im missing the DB file for this so cannot run my managelogin screen! Once I have DB all good :D -Lotus
 // $database = "project2";
@@ -18,6 +18,15 @@ $database = "jobstable_db";
 $database2 = "manage";
 
 $connManage = mysqli_connect($host, $user, $password, $database2);
+
+if (!$connManage) {
+    die("Manage connection failed: " . mysqli_connect_error());
+}
+
+//jobspage.php
+$database3 = "jobstable_db";
+
+$connManage = mysqli_connect($host, $user, $password, $database3);
 
 if (!$connManage) {
     die("Manage connection failed: " . mysqli_connect_error());
