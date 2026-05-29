@@ -3,6 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
+$database = "jobstable_db";
 
 //Im missing the DB file for this so cannot run my managelogin screen! Once I have DB all good :D -Lotus
 // $database = "project2";
