@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 
-<!-- used for specifying your css in order to override maintheme.css -> e.g. .apply main { *enter css here :D* } - Lotus -->
-
 <body class="apply">
 
     <?php include('header.inc'); ?>
@@ -26,7 +24,6 @@
             <p>Please complete all required fields</p>
         </div>
 
-
         <div class="container">
 
             <form action="process_eoi.php" method="post" novalidate>
@@ -35,103 +32,107 @@
                     <legend>Applicant Details</legend>
 
                     <label>First Name:</label>
-                    <input type="text" name="firstName" required pattern="[A-Za-z]{1,20}">
+                    <input type="text" name="firstName" value="<?php echo isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : ''; ?>">
 
                     <label>Last Name:</label>
-                    <input type="text" name="lastName" required pattern="[A-Za-z]{1,20}">
+                    <input type="text" name="lastName" value="<?php echo isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : ''; ?>">
 
                     <label>Date of Birth:</label>
-                    <input type="date" name="birthday" required>
+                    <input type="date" name="birthday" value="<?php echo isset($_POST['birthday']) ? htmlspecialchars($_POST['birthday']) : ''; ?>">
 
                     <label>Gender:</label>
-                    <label><input type="radio" name="gender" value="Male"> Male</label>
-                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Male" <?php echo (isset($_POST['gender']) && $_POST['gender'] === 'Male') ? 'checked' : ''; ?>> Male</label>
+                    <label><input type="radio" name="gender" value="Female" <?php echo (isset($_POST['gender']) && $_POST['gender'] === 'Female') ? 'checked' : ''; ?>> Female</label>
 
                     <label>Email:</label>
-                    <input type="email" name="email" required>
+                    <input type="text" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
 
                     <label>Phone:</label>
-                    <input type="tel" name="phone" pattern="04[0-9]{8}" required>
+                    <input type="text" name="phone" value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>">
                 </fieldset>
 
                 <fieldset>
                     <legend>Address</legend>
 
                     <label>Street:</label>
-                    <input type="text" name="street" required>
+                    <input type="text" name="street" value="<?php echo isset($_POST['street']) ? htmlspecialchars($_POST['street']) : ''; ?>">
 
                     <label>City:</label>
-                    <input type="text" name="city" required>
+                    <input type="text" name="city" value="<?php echo isset($_POST['city']) ? htmlspecialchars($_POST['city']) : ''; ?>">
 
                     <label>State:</label>
-                    <select name="state" required>
+                    <select name="state">
                         <option value="">Select</option>
-                        <option>Victoria</option>
-                        <option>New South Wales</option>
-                        <option>Queensland</option>
-                        <option>South Australia</option>
-                        <option>Tasmania</option>
-                        <option>Western Australia</option>
-                        <option>Northern Territory</option>
-                        <option>ACT</option>
+                        <?php
+                        $states = ['Victoria','New South Wales','Queensland','South Australia','Tasmania','Western Australia','Northern Territory','ACT'];
+                        foreach ($states as $s) {
+                            $selected = (isset($_POST['state']) && $_POST['state'] === $s) ? 'selected' : '';
+                            echo "<option $selected>$s</option>";
+                        }
+                        ?>
                     </select>
 
                     <label>Postcode:</label>
-                    <input type="text" name="postcode" pattern="[0-9]{4}" required>
+                    <input type="text" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : ''; ?>">
                 </fieldset>
 
                 <fieldset>
                     <legend>Job Details</legend>
 
                     <label>Job Reference:</label>
-                    <input type="text" name="jobRef" required>
+                    <input type="text" name="jobRef" value="<?php echo isset($_POST['jobRef']) ? htmlspecialchars($_POST['jobRef']) : ''; ?>">
 
                     <label>Experience:</label>
-                    <select name="experience" required>
+                    <select name="experience">
                         <option value="">Select</option>
-                        <option>No experience</option>
-                        <option>Less than a year</option>
-                        <option>1-2 years</option>
-                        <option>3-5 years</option>
-                        <option>5+ years</option>
+                        <?php
+                        $experiences = ['No experience','Less than a year','1-2 years','3-5 years','5+ years'];
+                        foreach ($experiences as $e) {
+                            $selected = (isset($_POST['experience']) && $_POST['experience'] === $e) ? 'selected' : '';
+                            echo "<option $selected>$e</option>";
+                        }
+                        ?>
                     </select>
                 </fieldset>
 
                 <fieldset>
                     <legend>Availability</legend>
 
-                    <label><input type="checkbox" name="day[]" value="Monday"> Monday</label>
-                    <label><input type="checkbox" name="day[]" value="Tuesday"> Tuesday</label>
-                    <label><input type="checkbox" name="day[]" value="Wednesday"> Wednesday</label>
-                    <label><input type="checkbox" name="day[]" value="Thursday"> Thursday</label>
-                    <label><input type="checkbox" name="day[]" value="Friday"> Friday</label>
-                    <label><input type="checkbox" name="day[]" value="Saturday"> Saturday</label>
-                    <label><input type="checkbox" name="day[]" value="Sunday"> Sunday</label>
+                    <?php
+                    $days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+                    foreach ($days as $d) {
+                        $checked = (isset($_POST['day']) && in_array($d, $_POST['day'])) ? 'checked' : '';
+                        echo "<label><input type='checkbox' name='day[]' value='$d' $checked> $d</label>";
+                    }
+                    ?>
 
                     <label>Notes:</label>
-                    <textarea name="availabilityDesc"></textarea>
+                    <textarea name="availabilityDesc"><?php echo isset($_POST['availabilityDesc']) ? htmlspecialchars($_POST['availabilityDesc']) : ''; ?></textarea>
                 </fieldset>
 
                 <fieldset>
                     <legend>Skills</legend>
 
-                    <label><input type="checkbox" name="skill[]" value="Communication"> Communication</label>
-                    <label><input type="checkbox" name="skill[]" value="Medical Administration"> Medical
-                        Administration</label>
-                    <label><input type="checkbox" name="skill[]" value="Teamwork"> Teamwork</label>
+                    <?php
+                    $skills = ['Communication','Medical Administration','Teamwork'];
+                    foreach ($skills as $sk) {
+                        $checked = (isset($_POST['skill']) && in_array($sk, $_POST['skill'])) ? 'checked' : '';
+                        echo "<label><input type='checkbox' name='skill[]' value='$sk' $checked> $sk</label>";
+                    }
+                    ?>
 
                     <label>Other Skills:</label>
-                    <textarea name="skillsDesc"></textarea>
+                    <textarea name="skillsDesc"><?php echo isset($_POST['skillsDesc']) ? htmlspecialchars($_POST['skillsDesc']) : ''; ?></textarea>
                 </fieldset>
 
                 <fieldset>
                     <legend>Interview</legend>
 
                     <label>Date:</label>
-                    <input type="date" name="date" required>
+                    <input type="date" name="date" value="<?php echo isset($_POST['date']) ? htmlspecialchars($_POST['date']) : ''; ?>">
 
                     <label>Time:</label>
-                    <input type="time" name="time" required>
+                    <input type="time" name="time" value="<?php echo isset($_POST['time']) ? htmlspecialchars($_POST['time']) : ''; ?>">
                 </fieldset>
 
                 <input type="submit" value="Submit">
