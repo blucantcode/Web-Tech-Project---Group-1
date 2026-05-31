@@ -24,12 +24,21 @@ if (!$connManage) {
 }
 
 //jobspage.php
-$database3 = "jobstable_db";
+//$database3 = "jobstable_db";
 
-$connManage = mysqli_connect($host, $user, $password, $database3);
+//$connManage = mysqli_connect($host, $user, $password, $database3);
 
-if (!$connManage) {
-    die("Manage connection failed: " . mysqli_connect_error());
+//if (!$connManage) {
+    //die("Manage connection failed: " . mysqli_connect_error());//
+//}
+
+//Apply.php
+$database = "apply";
+$conn = mysqli_connect($host, $user, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+
+
 
 ?>

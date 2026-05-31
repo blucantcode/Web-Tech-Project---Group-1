@@ -1,8 +1,8 @@
 <?php
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_POST)) {
     header('Location: Apply.php');
@@ -133,17 +133,9 @@ if ($interviewTime === '') {
 }
 
 if (!empty($errors)) {
-    include 'header.inc';
-    echo '<main><div class="container">';
-    echo '<h2>Please fix the following errors:</h2>';
-    echo '<ul style="color:red;">';
-    foreach ($errors as $err) {
-        echo '<li>' . $err . '</li>';
-    }
-    echo '</ul>';
-    echo '<p><a href="Apply.php">← Go back to the form</a></p>';
-    echo '</div></main>';
-    include 'footer.inc';
+    $_SESSION['errors'] = $errors;
+    $_SESSION['old'] = $_POST;
+    header('Location: Apply.php');
     exit();
 }
 
@@ -194,34 +186,53 @@ mysqli_stmt_execute($stmt);
 $eoiNumber = mysqli_insert_id($conn);
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
-
-include 'header.inc';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Submitted - Kelp Clinic</title>
+    <link rel="stylesheet" href="Styles/maintheme.css">
+    <link rel="stylesheet" href="Styles/apply.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search">
+</head>
+<body class="apply">
+<?php include 'header.inc'; ?>
+<div class="banner"></div>
 
 <main>
 <div class="container">
-    <div style="background:#f0fff0; border:1px solid green; border-radius:8px; padding:20px 30px; max-width:600px; margin:30px auto;">
+    <div style="background:#3f4f2f; border:2px solid #E2E3BF; border-radius:15px; padding:20px 30px; max-width:600px; margin:30px auto; color:#E2E3BF;">
         <h2>✅ Application Submitted!</h2>
         <p>Thank you, <strong><?php echo $firstName . ' ' . $lastName; ?></strong>. Your Expression of Interest has been received.</p>
 
         <table style="width:100%; border-collapse:collapse; margin-top:15px;">
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9; width:40%;">EOI Number</th>    <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><strong>#<?php echo $eoiNumber; ?></strong></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Job Reference</th>           <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $jobRef; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Name</th>                    <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $firstName . ' ' . $lastName; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Email</th>                   <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $email; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Phone</th>                   <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $phone; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Address</th>                 <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo "$street, $city, $state $postcode"; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Experience</th>              <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $experience; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Availability</th>            <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $daysStr ?: 'None selected'; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Skills</th>                  <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $skillsStr ?: 'None selected'; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Interview</th>               <td style="padding:6px 10px; border-bottom:1px solid #ddd;"><?php echo $interviewDate . ' at ' . $interviewTime; ?></td></tr>
-            <tr><th style="text-align:left; padding:6px 10px; background:#e8f5e9;">Status</th>                  <td style="padding:6px 10px;">New</td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; width:40%; color:#E2E3BF;">EOI Number</th>       <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><strong>#<?php echo $eoiNumber; ?></strong></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Job Reference</th>              <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $jobRef; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Name</th>                       <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $firstName . ' ' . $lastName; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Date of Birth</th>              <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $birthday; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Gender</th>                     <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $gender; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Email</th>                      <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $email; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Phone</th>                      <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $phone; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Address</th>                    <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo "$street, $city, $state $postcode"; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Experience</th>                 <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $experience; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Availability</th>               <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $daysStr ?: 'None selected'; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Availability Notes</th>         <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $availabilityDesc ?: 'None'; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Skills</th>                     <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $skillsStr ?: 'None selected'; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Other Skills</th>               <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $skillsDesc ?: 'None'; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Interview</th>                  <td style="padding:6px 10px; border-bottom:1px solid #E2E3BF;"><?php echo $interviewDate . ' at ' . $interviewTime; ?></td></tr>
+            <tr><th style="text-align:left; padding:6px 10px; background:#51623D; color:#E2E3BF;">Status</th>                     <td style="padding:6px 10px;">New</td></tr>
         </table>
 
         <p style="margin-top:15px;">Please keep your EOI number <strong>#<?php echo $eoiNumber; ?></strong> for your records.</p>
-        <p><a href="index.php">← Return to Home</a></p>
+        <p><a href="index.php" style="color:#E2E3BF;">← Return to Home</a></p>
     </div>
 </div>
 </main>
 
 <?php include 'footer.inc'; ?>
+</body>
+</html>
