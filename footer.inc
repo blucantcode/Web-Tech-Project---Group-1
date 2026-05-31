@@ -5,4 +5,5 @@
     </p>
     <p> <a href="https://github.com/blucantcode/Web-Tech-Project---Group-1">Github</a></p>
     <p> <a href="mailto:hello@kelp.com">Contact Us</a></p>
+    <p> <a href="managelogin.php">Manager Login</a><p>
   </footer>

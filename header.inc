@@ -12,8 +12,8 @@
       <div class="rectangle"></div>
 
       <div class="searchbox">
-        <form action="/search" method="get">
-          <input type="search" name="q" placeholder="Search..." aria-label="Search through site content">
+        <form action="/Web-Tech-Project---Group-1/jobspage.php" method="get">
+        <input type="search" name="search" placeholder="Search...">
           <button type="submit"><span class="searchbox-icon material-symbols-outlined"> search </span></button>
         </form>
       </div>

@@ -9,6 +9,7 @@ $user = "root";
 // Store the MySQL password - no password
 $password = "";
 
+
 // storing the name of the DB 
 $database = "project2";
 
@@ -21,6 +22,35 @@ $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn) {
        // Stop the program and display an error message
     die("Connection failed: " . mysqli_connect_error());
+
+
+
+//Im missing the DB file for this so cannot run my managelogin screen! Once I have DB all good :D -Lotus
+// $database = "projet2";
+
+// $conn = mysqli_connect($host, $user, $password, $database);
+
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+
+//Manage.php
+$database2 = "manage";
+
+$connManage = mysqli_connect($host, $user, $password, $database2);
+
+if (!$connManage) {
+    die("Manage connection failed: " . mysqli_connect_error());
+}
+
+//jobspage.php
+$database3 = "jobstable_db";
+
+$connManage = mysqli_connect($host, $user, $password, $database3);
+
+if (!$connManage) {
+    die("Manage connection failed: " . mysqli_connect_error());
+
 }
 
 ?>
