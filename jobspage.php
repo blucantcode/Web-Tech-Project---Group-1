@@ -5,9 +5,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include 'settings.php';
 
-$conn = mysqli_connect($host, $user, $password, $database); 
+$connJobs = mysqli_connect($host, $user, $password, $database); 
 
-if (!$conn) {
+if (!$connJobs) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -15,7 +15,7 @@ if (!$conn) {
 
 if (isset($_GET['search'])) {
 
-    $search = mysqli_real_escape_string($conn, $_GET['search']);
+    $search = mysqli_real_escape_string($connJobs, $_GET['search']);
 
     $sql = "SELECT Jobs.*, Jobs_requirements.*
             FROM Jobs
@@ -31,10 +31,10 @@ if (isset($_GET['search'])) {
             ON Jobs.Job_ID = Jobs_requirements.Job_ID";
 }
 
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connJobs, $sql);
 
 if (!$result) {
-    die("Query failed: " . mysqli_error($conn));}
+    die("Query failed: " . mysqli_error($connJobs));}
 
 
 $row1 = mysqli_fetch_assoc($result);
@@ -42,7 +42,7 @@ $row2 = mysqli_fetch_assoc($result);
 $row3 = mysqli_fetch_assoc($result);
 $row4 = mysqli_fetch_assoc($result);
 
-mysqli_close($conn);
+mysqli_close($connJobs);
 
 ?>
 

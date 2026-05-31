@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 include("settings.php");
 
 $sql = "SELECT * FROM about";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connProject, $sql);
 ?>
 
 
