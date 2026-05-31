@@ -9,11 +9,11 @@ $sort = $_GET['sort'] ?? '';
 // delete all in DB by reference in search bar
 if (isset($_POST['deleteall'])) {
 
-    $jobref = mysqli_real_escape_string($connManage, $_POST['jobref']);
+    $jobref = mysqli_real_escape_string($conn, $_POST['jobRef']);
 
-    $sql = "DELETE FROM testeoi WHERE jobref='$jobref'";
+    $sql = "DELETE FROM eoi WHERE jobRef='$jobref'";
 
-    mysqli_query($connManage, $sql);
+    mysqli_query($conn, $sql);
 
     header("Location: manage.php");
     exit();
@@ -21,15 +21,15 @@ if (isset($_POST['deleteall'])) {
 
 //search by name, ref, or status
 
-$sql = "SELECT jobref, first_name, last_name, status FROM testeoi WHERE 1=1";
+$sql = "SELECT jobRef, firstName, lastName, status FROM eoi WHERE 1=1";
 
 if (!empty($search)) {
-    $search = mysqli_real_escape_string($connManage, $search);
+    $search = mysqli_real_escape_string($conn, $search);
 
     $sql .= " AND (
-        jobref LIKE '%$search%' OR
-        first_name LIKE '%$search%' OR
-        last_name LIKE '%$search%' OR
+        jobRef LIKE '%$search%' OR
+        firstName LIKE '%$search%' OR
+        lastName LIKE '%$search%' OR
         status LIKE '%$search%'
     )";
 }
@@ -37,25 +37,25 @@ if (!empty($search)) {
 
 // Sorting
 if ($sort == "job_ref") {
-    $sql .= " ORDER BY jobref";
-} elseif ($sort == "first_name") {
-    $sql .= " ORDER BY first_name";
-} elseif ($sort == "last_name") {
-    $sql .= " ORDER BY last_name";
+    $sql .= " ORDER BY jobRef";
+} elseif ($sort == "firstName") {
+    $sql .= " ORDER BY firstName";
+} elseif ($sort == "lastName") {
+    $sql .= " ORDER BY lastName";
 }
 
-$result = mysqli_query($connManage, $sql);
+$result = mysqli_query($conn, $sql);
 
 //Update status
 
 if (isset($_POST['update_status'])) {
 
-    $jobref = mysqli_real_escape_string($connManage, $_POST['jobref']);
-    $newStatus = mysqli_real_escape_string($connManage, $_POST['status']);
+    $jobref = mysqli_real_escape_string($conn, $_POST['jobRef']);
+    $newStatus = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $sql = "UPDATE testeoi SET status='$newStatus' WHERE jobref='$jobref'";
+    $sql = "UPDATE eoi SET status='$newStatus' WHERE jobRef='$jobref'";
 
-    mysqli_query($connManage, $sql);
+    mysqli_query($conn, $sql);
 
     header("Location: manage.php");
     exit();
@@ -115,8 +115,8 @@ if (isset($_POST['update_status'])) {
                     <!-- Sort Options -->
                     <form method="GET">
                         <button name="sort" value="job_ref">Sort by Job Reference</button>
-                        <button name="sort" value="first_name">Sort by First Name</button>
-                        <button name="sort" value="last_name">Sort by Last Name</button>
+                        <button name="sort" value="firstName">Sort by First Name</button>
+                        <button name="sort" value="lastName">Sort by Last Name</button>
                     </form>
                 </div>
 
@@ -124,7 +124,7 @@ if (isset($_POST['update_status'])) {
 
                 <form method="POST">
                     <div class="deleteall">
-                        <input type="hidden" name="jobref" value="<?= htmlspecialchars($search) ?>">
+                        <input type="hidden" name="jobRef" value="<?= htmlspecialchars($search) ?>">
                         <button name="deleteall" value="delete"
                             onclick="return confirm('Are you sure you want to delete ALL EOIs for this job reference?');">Delete
                             all
@@ -144,14 +144,14 @@ if (isset($_POST['update_status'])) {
 
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?= $row['jobref'] ?></td>
-                        <td><?= $row['first_name'] ?></td>
-                        <td><?= $row['last_name'] ?></td>
+                        <td><?= $row['jobRef'] ?></td>
+                        <td><?= $row['firstName'] ?></td>
+                        <td><?= $row['lastName'] ?></td>
                         <td>
                             <!-- Update Status In table -->
                             <form method="POST">
                                 <!-- keeps the value (job reference) of this row, so when updating to a new status its the correct row -->
-                                <input type="hidden" name="jobref" value="<?= $row['jobref'] ?>">
+                                <input type="hidden" name="jobRef" value="<?= $row['jobRef'] ?>">
                                 <select name="status">
                                     <!-- makes sure the value displayed is the already selected value from DB, making the default option what was alr displayed -->
                                     <option value="new" <?= $row['status'] == "New" ? "selected" : "" ?>>New</option>
