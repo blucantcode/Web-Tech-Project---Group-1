@@ -23,12 +23,12 @@ if (!$connManage) {
     die("Manage connection failed: " . mysqli_connect_error());
 }
 
-//jobspage.php
-$database3 = "jobstable_db";
-$connJobs = mysqli_connect($host, $user, $password, $database3);
-if (!$connJobs) {
-    die("Jobs connection failed: " . mysqli_connect_error());
-}
+// //jobspage.php
+// $database3 = "jobstable_db";
+// $connJobs = mysqli_connect($host, $user, $password, $database3);
+// if (!$connJobs) {
+//     die("Jobs connection failed: " . mysqli_connect_error());
+// }
 
 //Apply.php 
 $database4 = "apply";
