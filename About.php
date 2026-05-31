@@ -1,8 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
+
+<?php
 include("settings.php");
 
 $sql = "SELECT * FROM about";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connProject, $sql);
 ?>
 
 
@@ -58,9 +65,14 @@ $result = mysqli_query($conn, $sql);
     </figure>
 
 
+<!-- Connecting the dataabase so when changes are made on DB, it also changes on the site. -->
+
+
     <section class="team">
       <h2>Who we are</h2>
-           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <!-- Loop through every row returned from the database query. --> 
+  
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
 
         <div class="memberCard">
           <dl>
@@ -71,14 +83,20 @@ $result = mysqli_query($conn, $sql);
               Student ID: <?php echo $row['student_id']; ?>
             </dd>
 
-            <dd>
-              <?php echo $row['contribution']; ?>
+            <dd class="contribution1">
+              Contribution 1: <?php echo $row['contribution-1']; ?>
+            </dd>
+
+            <dd class="contribution2">
+              Contribution 2: <?php echo $row['contribution-2']; ?>
             </dd>
 
 
             <dd class="quote">
               <?php echo $row['quote']; ?>
             </dd>
+
+           
 
           </dl>
         </div>

@@ -221,11 +221,11 @@ td {
 @media (max-width: 480px) {
   .rectangle {
     position: relative;
-    top: 150px;
+    top: 100px;
     right: auto;
     margin: auto;
     width: 80%;
-    max-width: 550px;
+    max-width: 90%;
     animation: fadeinNup 3s ease-in-out forwards;
   }
 
@@ -234,16 +234,21 @@ td {
     height: auto;
   }
 
-    .banner-desc {
-    top: 37%;
-    right: 12%;
-    font-size: 1.6rem;
+  .banner-desc {
+    position: relative;
+    top: -180px;
+    right: auto;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    font-size: 1rem;
   }
 
   .body-desc {
-    gap: 10px;
-    font-size: 1.5rem;
-    padding: 5rem;
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    font-size: 1rem;
   }
 
   .clinicimage {
@@ -254,8 +259,25 @@ td {
     font-size: 3rem;
     display: flex;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: auto;
+    padding: 5%;
 
+  }
+
+  .body-vacancies {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .body-table {
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  .body-table a {
+    font-size: 0.8rem;
   }
 
   .body-alljobs {
