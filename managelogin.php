@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lotus A">
     <title>Manager Login</title>
-    <link rel="stylesheet" href="Styles/index.css">
     <link rel="stylesheet" href="Styles/maintheme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,14 +48,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
-<body class="manage">
+<body class="managelogin">
     <main>
+        <!-- Header -->
         <h2>Login</h2>
+        <div class="login">
+            <!-- Username & Passowrd Entry -->
         <form method="post" action="manage.php">
-            Username: <input type="text" name="username" required><br><br>
-            Password: <input type="password" name="password" required><br><br>
+           <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+            <div class="loginbutton">
             <button type="submit">Login</button>
+            </div>
+            <!-- Return Button -->
+            <div class="return">
+        <a href="index.php">Return To Home</a>
+    </div>
         </form>
+        </div>
     </main>
 </body>
 

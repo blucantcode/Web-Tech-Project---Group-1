@@ -80,13 +80,13 @@
             <th colspan="2">Description</th>
           </tr>
           <tr>
-            <td><a href="Apply.html">Telehealth Consultant</a></td>
+            <td><a href="Apply.php">Telehealth Consultant</a></td>
             <td>J0013</td>
             <td>Provide remote healthcare consultations and support to patients</td>
             <td><em>Reports To Director of Telehealth</em></td>
           </tr>
           <tr>
-            <td><a href="Apply.html">Registered Nurse</a></td>
+            <td><a href="Apply.php">Registered Nurse</a></td>
             <td>J0017</td>
             <td>Provide direct patient care and support in a healthcare setting</td>
             <td><em>Reports To Nurse Manager</em></td>
@@ -95,7 +95,7 @@
       </div>
       <div class="body-alljobs">
         <h3>See More:</h3>
-        <a href="jobspage.html">All Jobs</a>
+        <a href="jobspage.php">All Jobs</a>
       </div>
     </div>
 </div>

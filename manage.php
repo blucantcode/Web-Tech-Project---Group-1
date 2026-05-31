@@ -71,7 +71,6 @@ if (isset($_POST['update_status'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lotus A">
     <title>Manager Dashboard</title>
-    <link rel="stylesheet" href="Styles/index.css">
     <link rel="stylesheet" href="Styles/maintheme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,60 +87,86 @@ if (isset($_POST['update_status'])) {
 </head>
 
 <body class="manage">
+    <div class="return">
+        <h2>Manager Dashboard</h2>
+        <a href="index.php">Return To Home</a>
+    </div>
     <main>
-        <!-- Search bar -->
-        <form method="GET">
-            <label for="searchcars">Search:</label>
-            <input type="search" id="search" name="search" placeholder="Search by Reference, Name, Status...">
-            <button type="submit">Search</button>
-            <!-- Show All Entries -->
-            <a href="manage.php"><button type="button">Show All</button></a>
+        <div class="manage-layout">
+            <div class="manage-controls">
+                <!-- Search bar -->
+                <div class="searchbar">
+                    <form method="GET">
+                        <input type="search" id="search" name="search"
+                            placeholder="Search by Reference, Name, Status...">
 
-            <!-- Sort Options -->
-            <button name="sort" value="job_ref">Sort by Job Reference</button>
-            <button name="sort" value="first_name">Sort by First Name</button>
-            <button name="sort" value="last_name">Sort by Last Name</button>
-        </form>
-        <!-- Delete All -->
-        <form method="POST">
-            <input type="hidden" name="jobref" value="<?= htmlspecialchars($search) ?>">
-            <button name="deleteall" value="delete"
-                onclick="return confirm('Are you sure you want to delete ALL EOIs for this job reference?');">Delete all
-                with Reference</button>
-        </form>
-        <!-- Results Table -->
-        <table border="1">
-            <tr>
-                <th>Job Reference</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Status</th>
-            </tr>
+                        <type="submit"><span class="searchbox-icon material-symbols-outlined"> search </span></button>
+                    </form>
+                </div>
 
-            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <!-- Controls -->
+                <div class="button-options">
+
+                    <!-- Show All Entries -->
+                    <a href="manage.php">
+                        <button type="button">Show All</button>
+                    </a>
+
+                    <!-- Sort Options -->
+                    <form method="GET">
+                        <button name="sort" value="job_ref">Sort by Job Reference</button>
+                        <button name="sort" value="first_name">Sort by First Name</button>
+                        <button name="sort" value="last_name">Sort by Last Name</button>
+                    </form>
+                </div>
+
+                <!-- Delete All -->
+
+                <form method="POST">
+                    <div class="deleteall">
+                        <input type="hidden" name="jobref" value="<?= htmlspecialchars($search) ?>">
+                        <button name="deleteall" value="delete"
+                            onclick="return confirm('Are you sure you want to delete ALL EOIs for this job reference?');">Delete
+                            all
+                            with Reference</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- Results Table -->
+            <table border="1">
                 <tr>
-                    <td><?= $row['jobref'] ?></td>
-                    <td><?= $row['first_name'] ?></td>
-                    <td><?= $row['last_name'] ?></td>
-                    <td>
-                        <!-- Update Status In table -->
-                        <form method="POST">
-                            <!-- keeps the value (job reference) of this row, so when updating to a new status its the correct row -->
-                            <input type="hidden" name="jobref" value="<?= $row['jobref'] ?>">
-                            <select name="status">
-                                <!-- makes sure the value displayed is the already selected value from DB, making the default option what was alr displayed -->
-                                <option value="new" <?= $row['status'] == "New" ? "selected" : "" ?>>New</option>
-                                <option value="current" <?= $row['status'] == "Current" ? "selected" : "" ?>>Current</option>
-                                <option value="final" <?= $row['status'] == "Final" ? "selected" : "" ?>>Final</option>
-                            </select>
-
-                            <button type="submit" name="update_status">Update</button>
-                        </form>
-                    </td>
+                    <th>Job Reference</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Status</th>
                 </tr>
-            <?php } ?>
 
-        </table>
+                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <td><?= $row['jobref'] ?></td>
+                        <td><?= $row['first_name'] ?></td>
+                        <td><?= $row['last_name'] ?></td>
+                        <td>
+                            <!-- Update Status In table -->
+                            <form method="POST">
+                                <!-- keeps the value (job reference) of this row, so when updating to a new status its the correct row -->
+                                <input type="hidden" name="jobref" value="<?= $row['jobref'] ?>">
+                                <select name="status">
+                                    <!-- makes sure the value displayed is the already selected value from DB, making the default option what was alr displayed -->
+                                    <option value="new" <?= $row['status'] == "New" ? "selected" : "" ?>>New</option>
+                                    <option value="current" <?= $row['status'] == "Current" ? "selected" : "" ?>>Current
+                                    </option>
+                                    <option value="final" <?= $row['status'] == "Final" ? "selected" : "" ?>>Final</option>
+                                </select>
+
+                                <button type="submit" name="update_status">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
     </main>
 </body>
 
