@@ -30,6 +30,7 @@
 
   <?php include('header.inc'); ?>
 
+
   <div class="banner-desc">
     <h1>HOLISTIC <br> HARMONY</h1>
     <h2>A New Way To <em>Thrive</em></h2>

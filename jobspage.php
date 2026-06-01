@@ -26,6 +26,10 @@ if (isset($_GET['search'])) {
 $result = mysqli_query($connJobs, $sql);
 
 if (!$result) {
+    die("Query failed: " . mysqli_error($connJobs));
+}
+
+if (!$result) {
     die("Query failed: " . mysqli_error($connJobs));}
 
 
