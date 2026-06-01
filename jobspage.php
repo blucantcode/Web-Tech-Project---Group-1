@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include 'settings.php';
 
-$connJobs = mysqli_connect($host, $user, $password, $database); 
+$connJobs = mysqli_connect($host, $user, $password, $database3); 
 
 if (!$connJobs) {
     die("Connection failed: " . mysqli_connect_error());
