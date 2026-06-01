@@ -143,7 +143,7 @@ $result = mysqli_query($connProject, $sql);
   </main>
 
   <footer>
-    <p>We acknowledge the Wurundjeri people of the Kulin Nation as the Traditional Custodians of the land on which we
+    <p style="color: #E2E3BF;">We acknowledge the Wurundjeri people of the Kulin Nation as the Traditional Custodians of the land on which we
       are based in Hawthorn, and we pay our respects to Elders past and present.
       We are committed to learning from and supporting Aboriginal and Torres Strait Islander communities.</p>
   </footer>
