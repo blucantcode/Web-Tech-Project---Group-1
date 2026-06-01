@@ -201,7 +201,7 @@ mysqli_close($conn);
 </head>
 <body class="apply">
 <?php include 'header.inc'; ?>
-<div class="banner"></div>
+
 
 <main>
 <div class="container">
