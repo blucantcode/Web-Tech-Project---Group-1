@@ -3,10 +3,7 @@
 
 include 'settings.php';
 
-$sql = "SELECT Jobs.*, Jobs_requirements.*
-        FROM Jobs
-        LEFT JOIN Jobs_requirements
-        ON Jobs.Job_ID = Jobs_requirements.Job_ID";
+$connJobs = mysqli_connect($host, $user, $password, $database3); 
 
 $result = mysqli_query($connJobs, $sql);
 
