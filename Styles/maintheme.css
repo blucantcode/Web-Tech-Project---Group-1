@@ -41,7 +41,7 @@ h6 {
   background-color: #73835b;
   border-radius: 50px;
   box-shadow: 0 0 10px 5px #51623d2e;
-  z-index: 1000;
+  z-index: 3000;
 }
 
 
@@ -134,7 +134,7 @@ button {
   background-image: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("../images/banner.png");
   background-size: cover;
   background-position: center;
-  height:600px;
+  height:900px;
   width: 100%;
   color: #51623D;
   text-align: center;
