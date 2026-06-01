@@ -3,10 +3,6 @@
 
 include 'settings.php';
 
-$connJobs = mysqli_connect($host, $user, $password, $database3); 
-
-$result = mysqli_query($connJobs, $sql);
-
 // For search bar
 
 if (isset($_GET['search'])) {
