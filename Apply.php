@@ -21,7 +21,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
 <body class="apply">
 
     <?php include('header.inc'); ?>
-    <div class="banner"></div>
+    
 
     <main>
 

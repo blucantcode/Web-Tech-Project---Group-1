@@ -1,15 +1,14 @@
 
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 include 'settings.php';
 
-$connJobs = mysqli_connect($host, $user, $password, $database); 
+$sql = "SELECT Jobs.*, Jobs_requirements.*
+        FROM Jobs
+        LEFT JOIN Jobs_requirements
+        ON Jobs.Job_ID = Jobs_requirements.Job_ID";
 
-if (!$connJobs) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$result = mysqli_query($connJobs, $sql);
 
 // For search bar
 
@@ -78,8 +77,6 @@ mysqli_close($connJobs);
 
 <!-- /* NavBar */ -->
 <?php include('header.inc'); ?>
-<div class="jobs-banner"></div>
-
 
 
 <main>

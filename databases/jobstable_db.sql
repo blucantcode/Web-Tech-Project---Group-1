@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 30, 2026 at 06:35 AM
+-- Generation Time: Jun 01, 2026 at 04:32 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -101,12 +101,6 @@ ALTER TABLE `Jobs`
   MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `Jobs_requirements`
---
-ALTER TABLE `Jobs_requirements`
-  MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- Constraints for dumped tables
 --
 
@@ -114,7 +108,7 @@ ALTER TABLE `Jobs_requirements`
 -- Constraints for table `Jobs_requirements`
 --
 ALTER TABLE `Jobs_requirements`
-  ADD CONSTRAINT `jobstable_id` FOREIGN KEY (`Job_ID`) REFERENCES `Jobs_requirements` (`Job_ID`);
+  ADD CONSTRAINT `jobs_requirements_ibfk_1` FOREIGN KEY (`Job_ID`) REFERENCES `Jobs` (`Job_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

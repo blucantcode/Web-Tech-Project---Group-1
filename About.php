@@ -43,7 +43,7 @@ $result = mysqli_query($connProject, $sql);
 <body class="about">
 
   <?php include('header.inc'); ?>
-  <div class="banner"></div>
+  
 
   <main>
 
