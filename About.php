@@ -45,7 +45,7 @@ $result = mysqli_query($connProject, $sql);
   <!-- Include shared website header -->
   <?php include('header.inc'); ?>
   <!-- Banner section -->
-  <div class="banner"></div>
+  <!-- <div class="banner"></div> -->
 
   <main>
 
